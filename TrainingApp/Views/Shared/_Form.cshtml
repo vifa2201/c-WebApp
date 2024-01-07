@@ -1,0 +1,44 @@
+@model TrainingViewModel
+
+
+<form asp-action="Insert" id="form-action" class="form-horizontal" method="post" role="form">
+
+
+    <div class="row justify-content-center ">
+   
+            <h3 class="mt-5 mb-2">Lägg till träningspass</h3>
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="text-danger">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="Training.Type" class="control-label">Tränings typ </label>
+                <input asp-for="Training.Id" required  type="hidden" class="form-control mb-2" />
+                <input asp-for="Training.Type" class="form-control mb-2 p-2" placeholder="Träningstyp" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Training.Duration" class="control-label">Tid</label>
+                <input asp-for="Training.Duration" required  class="form-control mb-2 p-2" placeholder="Träningens tid" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Training.Distance"  class="control-label">Sträcka</label>
+                <input asp-for="Training.Distance" required  class="form-control mb-2 p-2" placeholder="Träningens sträcka" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Training.Comment" class="control-label">Kommentar</label>
+                <textarea asp-for="Training.Comment" required  class="form-control mb-2 p-2" rows="5" placeholder="Hur gick träningen.."></textarea>
+
+
+            </div>
+  
+
+    </div>
+
+
+            <button type="submit" id="form-button" class="btn btn update">Lägg till träningspass</button>
+        
+    </div>
+</form>

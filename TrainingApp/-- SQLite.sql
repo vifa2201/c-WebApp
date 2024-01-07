@@ -1,0 +1,7 @@
+-- SQLite
+CREATE TABLE training (
+Id INTEGER PRIMARY KEY AUTOINCREMENT, 
+Type STRING, 
+Duration INTEGER, 
+Distance INTEGER, 
+Comment TEXT )

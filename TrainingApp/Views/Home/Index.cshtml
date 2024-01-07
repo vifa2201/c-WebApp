@@ -1,0 +1,51 @@
+﻿@model TrainingViewModel
+
+<section>
+
+    <h2 class="mb-5 text-center">Träningsdagbok</h2>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="text-success my-2 font-weight-bold">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+        @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="text-danger">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr class="">
+                    <th scope="col" class="p-2">Träningstyp</th>
+                    <th scope="col" class="p-2">Tid:</th>
+                    <th scope="col" class="p-2">Distans:</th>
+                    <th scope="col" class="p-2">Kommentar:</th>
+                    <th scope="col" class="p-2">Hantera</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var training in Model.TrainingList)
+                {
+                    //skriver ut data med foreach loop
+                    <tr>
+                        <td class="p-2" scope="row">@training.Type</td>
+                        <td class="p-2" scope="row">@training.Duration minuter</td>
+                        <td class="p-2" scope="row">@training.Distance km</td>
+                        <td class="p-2" scope="row">@training.Comment</td>
+                        <td class="p-2">
+                            <button  class="btn btn-danger btn-sm m-2" onclick="deleteTraining(@training.Id)"><i class="bi bi-trash-fill"></i></button>
+                            <button  class="btn btn-sm m-2 update" onclick="ReadForm(@training.Id)"><i class="bi bi-pencil-square"></i></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <p><strong>Totalt tid :</strong> @Model.TrainingList.Sum(t => t.Duration) min</p>
+    <p><strong>Totalt antal kilometer:</strong> @Model.TrainingList.Sum(t => t.Distance) km</p>
+</section>
