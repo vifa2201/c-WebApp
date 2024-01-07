@@ -5,7 +5,7 @@ Detta är en webbapplikation skapad med C# .NET för att hantera och dokumentera
 ## Teknologier
 
 - **C# .NET:** Backend-programmeringsspråk.
-- **MVC för desigmönster
+- MVC för desigmönster
 - **HTML/Razor:** Frontend-markup och presentation.
 - **SQLite:** Databashantering för att lagra träningsinformation.
 - **Bootstrap:** CSS-ramverk för responsivt och enhetligt gränssnitt.
